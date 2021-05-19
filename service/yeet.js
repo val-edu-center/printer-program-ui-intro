@@ -58,9 +58,14 @@ function reviewPendingOrders() {
     newDeniedOrders.forEach(o => {
         addDeclinedOrderInternal(o[0], o[1], o[5], o[6], o[7], o[2], o[4]);
     });
-    
+    // row5
 }
 
+//row 2  
+// tldr inputs to the approved 
+
+// row 3 manganing complexity: This allow values to be store in javascript, allow easier transfer of values from one list to another
+//TLDR: Javascript makes it easier but not having to use every table row id in HTML
 function reviewApprovedOrders() {
     const newOrders = [];
     const newFinishedOrders = [];
@@ -85,6 +90,7 @@ function reviewApprovedOrders() {
                 console.log('something is wrong');
         }
     }
+      //row 3 
     clearTable('accepted-table');
     newOrders.forEach(o => {
         addOrderInternal(o[0], o[1], o[4], o[5], o[6], o[2], o[3]);
@@ -125,10 +131,13 @@ function clearTable(label) {
 
 //internal.js
 
+//row 4 producal absraction: When paramaters are added it add row on the list and corrspond with the paramaters
+//TLDR add rows with the given paramaters 
 function addPendingOrderInternal(orderId, clientId, printerId, designerId, description, fileSize, date, color) {
 
     if (orderId != null && clientId != null && printerId != null && designerId != null) {
 
+//null check client id and description to finsh 6
         rowInput = [orderId, clientId, date, fileSize, color, printerId, designerId, description];
         store.pendingOrders.push(rowInput);
     
