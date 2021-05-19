@@ -22,6 +22,10 @@ function addPendingOrder() {
     addPendingOrderInternal(id, clientName, printer, designer, description, fileSize, date, color);
 }
 
+//row5 : sequcence destory the table, define the boolean value, add date, 
+//       selection if statment tells everything where to go based on the boolean
+//       itreation make this happen for EACH pending order
+//          TLDR remove values, add values, tell values where to go, repeat 
 function reviewPendingOrders() {
     const newPendingOrders = [];
     const newOrders = [];
@@ -42,6 +46,8 @@ function reviewPendingOrders() {
             newPendingOrders.push(pendingOrder);
         }
     }
+
+    //row 2 data abstraction:data abstraction: values are stored here to make a newOrder, Denied order, or a pending order 
     clearTable('pending-table');
     newPendingOrders.forEach(o => {
         addPendingOrderInternal(o[0], o[1], o[5], o[6], o[7], o[3], o[2], o[4]);
