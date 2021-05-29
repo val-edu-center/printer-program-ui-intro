@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DSC106 - HW3 - Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7CPaytone+One&display=swap" rel="stylesheet" />
+    <script type="text/javascript" src="./service/yeet.js"></script>
+</head>
+
+<body>
+    <section>
+        <form class="pure-form">
+            <fieldset class="pure-form">
+                <form class="pure-form pure-form-aligned">
+                    <fieldset>
+                        <div class="pure-control-group">
+                            <h1>Client Form</h1>
+                            <label for="aligned-name">Name</label>
+                            <input type="text" id="aligned-name" placeholder="Name" />
+                            <span class="pure-form-message-inline">This is a required field.</span>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="color">Color of the Print</label>
+                            <select id="color" class="pure-input-1-2">
+                                <option>Red</option>
+                                <option>Blue</option>
+                                <option>Black</option>
+                            </select>
+                        </div>
+
+                        <div class="pure-u-1 pure-u-md-1-3">
+                            <label for="printer">Preferred Printer</label>
+                            <select id="printer" class="pure-input-1-2">
+                                <option>N/A</option>
+                                <option>J</option>
+                                <option>N</option>
+                                <option>S</option>
+                            </select>
+                        </div>
+
+                        <div class="pure-u-1 pure-u-md-1-3">
+                            <label for="designer">Preferred Desginer</label>
+                            <select id="designer" class="pure-input-1-2">
+                                <option>N/A</option>
+                                <option>J</option>
+                                <option>N</option>
+                                <option>S</option>
+                            </select>
+                        </div>
+                        <label for="">Item Description</label>
+                        <textarea id='description'
+                            placeholder="Please describe the item to your best ablity"></textarea>
+                        <div class="pure-controls">
+                            <label for="aligned-cb" class="pure-checkbox">
+                                <input type="checkbox" id="aligned-cb" /> I&#x27;ve read the terms and
+                                conditions</label> <span class="pure-form-message-inline">This is a required
+                                field.</span>
+                            <br><br>
+
+                            <button type="button" onclick='addPendingOrder()'
+                                class="pure-button pure-button-primary">Submit</button>
+
+                            <!-- Still need align everthing -->
+                        </div>
+                    </fieldset>
+                </form>
+            </fieldset>
+        </form>
+        <section>
+            <h1>Pending Orders</h1>
+            <table class="pure-table pure-table-bordered" id='pending-table'>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Client</th>
+                        <th>Date Submitted</th>
+                        <th>File Size</th>
+                        <th>Color</th>
+                        <th>Printer</th>
+                        <th>Desginer</th>
+                        <th>item description</th>
+                        <th>Approve</th>
+                        <th>Decline</th>
+                    </tr>
+                </thead>
+                <tbody id='pending-table-body'></tbody>
+            </table>
+
+        </section>
+        <button class="pure-button" onclick="reviewPendingOrders()" type='button'>Update</button>
+        <section>
+            <h1>Approved Orders</h1>
+            <table id='accepted-table' class="pure-table pure-table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Client</th>
+                        <th>Date Approved</th>
+                        <th>Color</th>
+                        <th>Printer</th>
+                        <th>Desginer</th>
+                        <th>item description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id='accepted-table-body'></tbody>
+            </table>
+        </section>
+        <button class="pure-button pure-button-primary" onclick="reviewApprovedOrders()" type="button" >Update</button>
+        <section>
+            <h1>Declined Orders</h1>
+            <table id='declined-table' class="pure-table pure-table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Client</th>
+                        <th>Date Decline</th>
+                        <th>Reason for Decline</th>
+                        <th>Printer</th>
+                        <th>Desginer</th>
+                        <th>Color</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody id='declined-table-body'></tbody>
+            </table>
+        </section>
+        <button class="pure-button" onclick="reviewDeclinedOrders()" type="button">Update</button>
+        <section>
+            <h1>History</h1>
+            <table id='history-table' class="pure-table pure-table-bordered">
+                <thead>
+                    <th>#</th>
+                    <th>Client</th>
+                    <th>Date of Final Action</th>
+                    <th>Final Action</th>
+                    <th>Reason for Decline</th>
+                    <th>Printer</th>
+                    <th>Desginer</th>
+                    <th>Color</th>
+                    <th>Item Description</th>
+                </thead>
+                <tbody id='history-table-body'></tbody>
+            </table>
+        </section>
+        <div class=links>
+            <a href="./client.html">client</a>
+            <a href="#">worker's page</a>
+            <a href="#">worker's Approved</a>
+        </div>
+
+    </section>
+</body>
+
+</html>

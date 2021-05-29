@@ -1,16 +1,21 @@
-function login() {
+function signup() {
+    const f = document.getElementById('first-name-input').value
+    const l = document.getElementById('last-name-input').value
     const u = document.getElementById('username-input').value
     const p = document.getElementById('password-input').value
 
-    getDataParse(url = 'https://parseapi.back4app.com/login?' + `username=${u}&password=${p}`)    
+    postDataParse(url = 'https://parseapi.back4app.com/users', data = { password:String(p), username: String(u)})
     .then(data => {
         console.log(data); // JSON data parsed by `data.json()` call
+      });
 
-        if (data['error'] == null) {
-            window.location.href ='./'
-        }
+
+    postData(url = 'localhost:9200/users/', data= { firstName: f, lastName: l, username: u})
+    .then(data => {
+        console.log(data); // JSON data parsed by `data.json()` call
       });
 }
+
 
 async function getDataParse(url = '', data = {}) {
     // Default options are marked with *
@@ -63,5 +68,23 @@ async function postDataParse(url = '', data = {}) {
 //   postData('https://example.com/answer', { answer: 42 })
 
 
+async function postData(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
 
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
     
